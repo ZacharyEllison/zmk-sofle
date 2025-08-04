@@ -43,7 +43,7 @@
 
         layer0 {
             bindings = <
-&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW    &kp N6     &kp N7  &kp N8     &kp N9                             &kp N0         &kp MINUS
+&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW    &kp N6     &kp N7  &kp N8     &kp N9                             &kp N0         &kp BACKSPACE
 &kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN        &kp Y      &kp U   &kp I      &kp O                              &kp P          &kp BACKSLASH
 &kp CAPS    &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW  &kp H      &kp J   &kp K      &kp L                              &kp SEMICOLON  &kp SINGLE_QUOTE
 &kp LSHFT   &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT       &kp N      &kp M   &kp COMMA  &kp DOT                            &kp FSLH       &kp RSHIFT
@@ -56,9 +56,9 @@
 
         layer_1 {
             bindings = <
-&kp GRAVE         &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &rgb_ug RGB_BRI  &kp F6           &kp F7           &kp F8      &kp F9   &kp F10           &kp BACKSPACE
+&kp GRAVE         &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &rgb_ug RGB_BRI  &kp F6           &kp F7           &kp F8      &kp F9   &kp MINUS         &kp EQUAL
 &kp K_PLAY_PAUSE  &trans           &kp UP_ARROW    &trans           &trans           &trans             &rgb_ug RGB_BRD  &kp PG_UP        &kp END          &kp INS     &trans   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans            &kp LEFT         &kp DOWN        &kp RIGHT        &trans           &trans             &rgb_ug RGB_HUD  &kp PG_DN        &trans           &trans      &trans   &kp SEMI          &kp RETURN
+&trans            &kp LEFT         &kp DOWN        &kp RIGHT        &trans           &trans             &rgb_ug RGB_HUD  &kp PG_DN        &trans           &trans      &trans   &kp EQUAL         &kp RETURN
 &kp LSHFT         &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11  &kp F12           &kp RSHFT
 &kp C_MUTE        &trans           &trans          &trans           &trans           &trans             &rgb_ug RGB_EFF  &trans           &trans           &trans      &trans   &trans
             >;
@@ -76,7 +76,7 @@
 &trans     &trans        &trans          &trans        &trans        &trans          &out OUT_BLE  &trans  &trans  &trans      &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(PLUS) LC(KP_MINUS)>;
+            sensor-bindings = <&inc_dec_kp LG(PLUS) LG(KP_MINUS)>;
         };
     };
 };
