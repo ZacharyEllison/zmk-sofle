@@ -63,7 +63,7 @@ layers:
   - $$mdi:keyboard-space$$
   - '2'
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - AC DESKTOP SHOW ALL WINDOWS
+  - END
   - Gui+S
   layer1:
   - {t: '`', s: '~'}
