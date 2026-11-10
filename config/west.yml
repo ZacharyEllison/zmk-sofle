@@ -14,7 +14,7 @@ manifest:
       revision: main 
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: f9be3ed9c08b35b1b86df24c0f04913f3b5e50f5 # last zmk before zephyr 4.1, board is not hwmv2 yet
       import: app/west.yml
   self:
     path: boards
