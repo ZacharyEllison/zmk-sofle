@@ -38,6 +38,19 @@
     behaviors {
     };
 
+    combos {
+        compatible = "zmk,combos";
+        // Toggle the mouse layer (layer 3) on/off.
+        // Hold the left layer key (pos 56) + left shift (pos 39) + tap 1 (pos 1).
+        // Without shift, holding the layer key and tapping 1 still sends F1,
+        // because the combo only fires when all three keys are held.
+        mouse_tog {
+            timeout-ms = <50>;
+            key-positions = <56 39 1>;
+            bindings = <&tog 3>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -77,6 +90,22 @@
             >;
 
             sensor-bindings = <&inc_dec_kp LG(PLUS) LG(KP_MINUS)>;
+        };
+
+        layer_3 {
+            // Mouse layer (toggled on/off, see combos node above).
+            // Clicks on the home row: F=left, J=right, G=middle, D=back(MB4), H=forward(MB5).
+            // Movement: W/A/S/D + arrows. Scroll: I/K vertical, U/O horizontal.
+            bindings = <
+&trans     &trans     &trans        &trans        &trans  &trans       &mmv MOVE_UP     &trans     &trans  &msc SCRL_UP   &trans     &trans         &trans
+&trans     &trans     &mmv MOVE_UP  &trans        &trans  &trans       &msc SCRL_UP     &trans     &trans  &trans       &msc SCRL_RIGHT &trans        &trans
+&trans     &mmv MOVE_LEFT &mkp MCLK &mkp MB4      &mkp LCLK &mkp RCLK   &mkp MB5        &trans     &mkp RCLK &trans      &trans   &trans         &trans
+&trans     &mmv MOVE_DOWN &trans    &trans        &trans  &trans       &msc SCRL_DOWN   &trans     &trans  &trans       &msc SCRL_LEFT  &trans        &trans
+&trans     &trans     &trans        &trans        &trans  &mmv MOVE_DOWN &trans         &trans     &trans  &trans       &trans   &trans
+            >;
+
+            display-name = "mouse";
+            sensor-bindings = <&inc_dec_kp K_VOLUME_UP K_VOLUME_DOWN>;
         };
     };
 };
