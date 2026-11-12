@@ -43,18 +43,12 @@
     };
 
     behaviors {
-    };
-
-    combos {
-        compatible = "zmk,combos";
-        // Toggle the mouse layer (layer 3) on/off.
-        // Hold the left layer key (pos 56) + left shift (pos 39) + tap 1 (pos 1).
-        // Without shift, holding the layer key and tapping 1 still sends F1,
-        // because the combo only fires when all three keys are held.
-        mouse_tog {
-            timeout-ms = <50>;
-            key-positions = <56 39 1>;
-            bindings = <&tog 3>;
+        // On layer 1, the 1 key: F1, or toggle the mouse layer (3) when shift is held.
+        f1_mouse: f1_mouse {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp F1>, <&tog 3>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -76,7 +70,7 @@
 
         layer_1 {
             bindings = <
-&kp GRAVE         &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &rgb_ug RGB_BRI  &kp F6           &kp F7           &kp F8      &kp F9   &kp MINUS         &kp EQUAL
+&kp GRAVE         &f1_mouse        &kp F2          &kp F3           &kp F4           &kp F5             &rgb_ug RGB_BRI  &kp F6           &kp F7           &kp F8      &kp F9   &kp MINUS         &kp EQUAL
 &kp K_PLAY_PAUSE  &trans           &kp UP_ARROW    &trans           &trans           &trans             &rgb_ug RGB_BRD  &kp PG_UP        &kp END          &kp INS     &trans   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
 &trans            &kp LEFT         &kp DOWN        &kp RIGHT        &trans           &trans             &rgb_ug RGB_HUD  &kp PG_DN        &trans           &trans      &trans   &kp EQUAL         &kp RETURN
 &kp LSHFT         &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11  &kp F12           &kp RSHFT
@@ -100,7 +94,7 @@
         };
 
         layer_3 {
-            // Mouse layer (toggled on/off, see combos node above).
+            // Mouse layer: on with layer 1 + shift + 1 (f1_mouse); off with left shift + 1 (layer 4).
             // Move: I/J/K/L. Clicks: right space=left, right shift=right, S=middle, D=back(MB4), F=forward(MB5).
             // Scroll: U/O vertical, Y/P horizontal, plus the encoder. Hold left shift for precision (layer 4).
             bindings = <
@@ -117,8 +111,9 @@
 
         layer_4 {
             // Precision mouse: held from left shift on layer 3; slows movement via mmv_input_listener.
+            // The 1 key here turns the mouse layer off, since left shift no longer sends shift on layer 3.
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &tog 3  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
