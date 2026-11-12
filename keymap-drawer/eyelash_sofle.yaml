@@ -67,7 +67,7 @@ layers:
   - {t: '-', s: _}
   layer1:
   - {t: '`', s: '~'}
-  - F1
+  - {t: F1, s: mouse}
   - F2
   - F3
   - F4
@@ -262,7 +262,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   precise:
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: mouse, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -325,6 +325,3 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-combos:
-- p: [56, 39, 1]
-  k: {t: mouse, h: toggle}
